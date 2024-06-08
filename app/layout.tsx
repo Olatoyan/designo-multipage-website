@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "@/app/_styles/globals.css";
 import Navigation from "@/app/_components/Navigation";
+import Footer from "@/app/_components/Footer";
 
 const jost = Jost({ subsets: ["latin"], display: "swap" });
 
@@ -21,10 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jost.className} leading-[100%]`}>
+      <body className={`${jost.className}`}>
         <Navigation />
 
         <main className="px-[14rem]">{children}</main>
+
+        <Footer />
       </body>
     </html>
   );

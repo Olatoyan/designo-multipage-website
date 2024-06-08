@@ -17,14 +17,14 @@ function Navigation() {
         </Link>
 
         <ul className="flex items-center gap-[4.2rem]">
-          <li className="text-[1.4rem] uppercase leading-[100%] tracking-[0.2rem] text-[#333136]">
-            <Link href="/">Our company</Link>
+          <li className="text-[1.4rem] uppercase leading-[100%] tracking-[0.2rem] text-[#333136] transition-all duration-300 hover:underline">
+            <Link href="/about">Our company</Link>
           </li>
-          <li className="text-[1.4rem] uppercase leading-[100%] tracking-[0.2rem] text-[#333136]">
-            <Link href="/">Locations</Link>
+          <li className="text-[1.4rem] uppercase leading-[100%] tracking-[0.2rem] text-[#333136] transition-all duration-300 hover:underline">
+            <Link href="/location">Locations</Link>
           </li>
-          <li className="text-[1.4rem] uppercase leading-[100%] tracking-[0.2rem] text-[#333136]">
-            <Link href="/">Contact</Link>
+          <li className="text-[1.4rem] uppercase leading-[100%] tracking-[0.2rem] text-[#333136] transition-all duration-300 hover:underline">
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
       </nav>
