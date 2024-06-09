@@ -8,7 +8,7 @@ type HeroBannerType = {
 
 function HeroBanner({ title, description, image }: HeroBannerType) {
   return (
-    <section className="relative flex flex-col items-center justify-between rounded-[1.5rem] bg-[#e7816b] px-[9.5rem] py-24">
+    <section className="relative flex flex-col items-center justify-between rounded-[1.5rem] bg-[#e7816b] px-[9.5rem] py-28">
       <h1 className="z-[2] max-w-[26.8rem] pb-[2.4rem] text-center text-[4.8rem] font-medium leading-[100%] text-white">
         {title}
       </h1>

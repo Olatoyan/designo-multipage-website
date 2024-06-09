@@ -1,6 +1,4 @@
-import DesignCard from "./DesignCard";
-
-const designData = [
+export const webDesignData = [
   {
     title: "Express",
     description: "A multi-carrier shipping website for ecommerce businesses",
@@ -37,20 +35,33 @@ const designData = [
     image: "/web-design/desktop/image-camp.jpg",
   },
 ];
-
-function WebDesignBox() {
-  return (
-    <section className="mt-[16rem] grid grid-cols-3 gap-x-12 gap-y-14">
-      {designData.map((design) => (
-        <DesignCard
-          title={design.title}
-          description={design.description}
-          image={design.image}
-          key={design.title}
-        />
-      ))}
-    </section>
-  );
-}
-
-export default WebDesignBox;
+export const appDesignData = [
+  {
+    title: "airfilter",
+    description:
+      "Solving the problem of poor indoor air quality by filtering the air",
+    image: "/app-design/desktop/image-airfilter.jpg",
+  },
+  {
+    title: "eyecam",
+    description:
+      "Product that lets you edit your favorite photos and videos at any time",
+    image: "/app-design/desktop/image-eyecam.jpg",
+  },
+  {
+    title: "faceit",
+    description:
+      "Get to meet your favorite internet superstar with the faceit app",
+    image: "/app-design/desktop/image-faceit.jpg",
+  },
+  {
+    title: "todo",
+    description: "A todo app that features cloud sync with light and dark mode",
+    image: "/app-design/desktop/image-todo.jpg",
+  },
+  {
+    title: "loopstudios",
+    description: "A VR experience app made for Loopstudios",
+    image: "/app-design/desktop/image-loopstudios.jpg",
+  },
+];
