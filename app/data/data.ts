@@ -35,6 +35,7 @@ export const webDesignData = [
     image: "/web-design/desktop/image-camp.jpg",
   },
 ];
+
 export const appDesignData = [
   {
     title: "airfilter",
@@ -63,5 +64,23 @@ export const appDesignData = [
     title: "loopstudios",
     description: "A VR experience app made for Loopstudios",
     image: "/app-design/desktop/image-loopstudios.jpg",
+  },
+];
+
+export const graphicDesignData = [
+  {
+    title: "Tim brown",
+    description: "A book cover designed for Tim Brown’s new release, ‘Change’",
+    image: "/graphic-design/desktop/image-change.jpg",
+  },
+  {
+    title: "boxed water",
+    description: "A simple packaging concept made for Boxed Water",
+    image: "/graphic-design/desktop/image-boxed-water.jpg",
+  },
+  {
+    title: "science!",
+    description: "A poster made in collaboration with the Federal Art Project",
+    image: "/graphic-design/desktop/image-science.jpg",
   },
 ];
