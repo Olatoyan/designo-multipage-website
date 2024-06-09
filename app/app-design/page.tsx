@@ -1,9 +1,14 @@
+import { Metadata } from "next";
 import BgImage from "@/public/app-design/desktop/bg-pattern-intro-app.svg";
 import HeroBanner from "@/app/_components/HeroBanner";
 import DesignBox from "@/app/_components/DesignBox";
 import DesignLinkSection from "@/app/_components/DesignLinkSection";
 import Cta from "@/app/_components/Cta";
 import { appDesignData } from "@/app/data/data";
+
+export const metadata: Metadata = {
+  title: "App-Design",
+};
 
 function page() {
   return (
