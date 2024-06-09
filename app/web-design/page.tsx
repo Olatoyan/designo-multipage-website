@@ -1,8 +1,8 @@
 import HeroBanner from "../_components/HeroBanner";
 import BgImage from "@/public/web-design/desktop/bg-pattern-intro-web.svg";
 import WebDesignBox from "@/app/_components/WebDesignBox";
-import DesignLinkSection from "../_components/DesignLinkSection";
-import Cta from "../_components/Cta";
+import DesignLinkSection from "@/app/_components/DesignLinkSection";
+import Cta from "@/app/_components/Cta";
 
 function WebDesign() {
   return (
