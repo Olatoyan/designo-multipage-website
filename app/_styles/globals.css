@@ -5,3 +5,59 @@
 html {
   font-size: 62.5%;
 }
+
+.loader {
+  width: 8em;
+  height: 4em;
+  position: relative;
+  margin: 0 auto;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 0.4em solid transparent;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.outer {
+  border-top-color: #e7816b;
+  border-right-color: #333136;
+  border-bottom-color: #e7816b;
+  border-left-color: #333136;
+  animation-name: rotate-outer;
+}
+
+.inner {
+  border-top-color: #333136;
+  border-right-color: #e7816b;
+  border-bottom-color: #333136;
+  border-left-color: #e7816b;
+  animation-name: rotate-inner;
+}
+
+@keyframes rotate-outer {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-inner {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
