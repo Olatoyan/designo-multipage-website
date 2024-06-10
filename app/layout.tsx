@@ -3,6 +3,7 @@ import { Jost } from "next/font/google";
 import "@/app/_styles/globals.css";
 import Navigation from "@/app/_components/Navigation";
 import Footer from "@/app/_components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const jost = Jost({ subsets: ["latin"], display: "swap" });
 
@@ -28,6 +29,14 @@ export default function RootLayout({
         <main className="px-[14rem]">{children}</main>
 
         <Footer />
+
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3000,
+            style: { fontSize: "1.6rem", padding: "1.4rem 2.4rem" },
+          }}
+        />
       </body>
     </html>
   );
