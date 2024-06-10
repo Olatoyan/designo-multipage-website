@@ -23,7 +23,7 @@ const FeaturesData = [
 
 function HomeFeaturesSection() {
   return (
-    <section className="grid grid-cols-3 gap-[3.2rem]">
+    <section className="tablet:gap-16 my-[16rem] grid grid-cols-3 gap-[3.2rem] laptop:grid-cols-1">
       {FeaturesData.map((feature) => (
         <FeatureCard
           key={feature.title}
@@ -46,7 +46,7 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="my-[16rem] flex flex-col items-center text-center">
+    <div className="tablet:px-10 tablet:flex-col tablet:text-center tablet:gap-0 flex flex-col items-center text-center laptop:flex-row laptop:gap-20 laptop:text-start">
       <Image
         src={img}
         alt={title}
@@ -55,12 +55,14 @@ function FeatureCard({
         className="rounded-full"
       />
 
-      <h3 className="pb-[2.4rem] pt-[3rem] text-[2rem] font-medium uppercase leading-[130%] tracking-[0.5rem] text-[#333136]">
-        {title}
-      </h3>
-      <p className="text-[1.6rem] leading-[2.6rem] text-[#333136]">
-        {description}
-      </p>
+      <div>
+        <h3 className="tablet:pt-[4.8rem] tablet:pb-[3.2rem] tablet:text-[2rem] pb-[2.4rem] pt-[3rem] text-[2rem] font-medium uppercase leading-[130%] tracking-[0.5rem] text-[#333136]">
+          {title}
+        </h3>
+        <p className="text-[1.6rem] leading-[2.6rem] text-[#333136]">
+          {description}
+        </p>
+      </div>
     </div>
   );
 }
