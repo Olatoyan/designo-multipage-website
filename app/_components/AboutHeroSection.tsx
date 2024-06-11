@@ -6,15 +6,44 @@ import TabletAboutImg from "@/public/about/tablet/image-about-hero.jpg";
 import MobileAboutImg from "@/public/about/mobile/image-about-hero.jpg";
 import ImgPattern from "@/public/about/desktop/bg-pattern-hero-about-desktop.svg";
 import useMediaQuery from "../_hooks/useMediaQuery";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 function AboutHeroSection() {
   const isDesktop = useMediaQuery("(min-width: 1025px)");
 
   const isTablet = useMediaQuery("(min-width: 701px) and (max-width: 1024px)");
 
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
+  const textAnimation = {
+    hidden: { opacity: 0, x: -40 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const imageAnimation = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <section className="relative mb-[16rem] flex items-center gap-10 overflow-hidden rounded-[1.5rem] bg-[#e7816b] pl-36 laptop:flex-col laptop:gap-0 laptop:pl-0 tablet:mb-0 tablet:rounded-none">
-      <div className="z-[3] laptop:py-[6.4rem] laptop:text-center">
+      <motion.div
+        ref={textRef}
+        initial="hidden"
+        animate={textInView ? "visible" : "hidden"}
+        variants={textAnimation}
+        transition={{ duration: 0.5 }}
+        className="z-[3] laptop:py-[6.4rem] laptop:text-center"
+      >
         <h1 className="pb-[3.2rem] text-[4.8rem] font-medium leading-[100%] text-white tablet:pb-[2.4rem] tablet:text-[3.2rem] tablet:leading-[3.6rem]">
           About Us
         </h1>
@@ -25,10 +54,16 @@ function AboutHeroSection() {
           impact. We’re always looking forward to creating brands, products, and
           digital experiences that connect with our clients’ audiences.
         </p>
-      </div>
-      <picture className="ml-auto laptop:order-first laptop:ml-0 laptop:h-[40rem] laptop:w-full tablet:h-[32rem]">
+      </motion.div>
+      <motion.picture
+        ref={imageRef}
+        initial="hidden"
+        animate={imageInView ? "visible" : "hidden"}
+        variants={imageAnimation}
+        transition={{ duration: 0.5 }}
+        className="ml-auto laptop:order-first laptop:ml-0 laptop:h-[40rem] laptop:w-full tablet:h-[32rem]"
+      >
         <Image
-          // src={DesktopAboutImg}
           src={
             isDesktop
               ? DesktopAboutImg
@@ -41,7 +76,7 @@ function AboutHeroSection() {
           placeholder="blur"
           className="h-full w-full"
         />
-      </picture>
+      </motion.picture>
       <Image
         src={ImgPattern}
         alt="Pattern image"
