@@ -28,7 +28,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-1 flex-col gap-[2.5rem] py-[5.4rem]"
+      className="z-[3] flex flex-1 flex-col gap-[2.5rem] py-[5.4rem] laptop:w-full"
     >
       <div className="relative flex">
         <input

@@ -1,10 +1,16 @@
+"use client";
 import Logo from "@/public/logo-light.png";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 function Footer() {
+  const pathname = usePathname();
+
   return (
-    <footer className="bg-[#1d1c1e] px-[14rem] pb-28 pt-[14.4rem] desktop:px-24 laptop:pt-[25rem]">
+    <footer
+      className={`bg-[#1d1c1e] px-[14rem] pb-28 pt-[14.4rem] desktop:px-24 laptop:px-8 ${pathname === "/contact" ? "laptop:pt-36" : "laptop:pt-[25rem]"}`}
+    >
       <nav className="flex items-center justify-between border-b border-solid border-white border-opacity-10 pb-16 tablet:flex-col tablet:border-0">
         <Link href="/">
           <Image
