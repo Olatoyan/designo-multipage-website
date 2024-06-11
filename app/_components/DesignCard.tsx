@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type DesignCardProps = {
   title: string;
@@ -8,7 +10,11 @@ type DesignCardProps = {
 
 function DesignCard({ title, description, image }: DesignCardProps) {
   return (
-    <div className="group flex cursor-pointer flex-col items-center overflow-hidden rounded-[1.5rem] bg-[#fdf3f0] text-center transition-all duration-300 hover:bg-[#e7816b] laptop:flex-row tablet:flex-col">
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="group flex cursor-pointer flex-col items-center overflow-hidden rounded-[1.5rem] bg-[#fdf3f0] text-center transition-all duration-300 hover:bg-[#e7816b] laptop:flex-row tablet:flex-col"
+    >
       <div className="relative h-[38rem] w-full laptop:h-[31rem] laptop:flex-1 tablet:flex-auto">
         <Image
           src={image}
@@ -27,7 +33,7 @@ function DesignCard({ title, description, image }: DesignCardProps) {
           {description}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
