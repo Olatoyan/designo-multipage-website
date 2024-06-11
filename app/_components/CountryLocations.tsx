@@ -1,8 +1,11 @@
 import CountryLocationsCard from "@/app/_components/CountryLocationsCard";
 
-import AustraliaImg from "@/public/locations/desktop/image-map-australia.png";
-import CanadaImg from "@/public/locations/desktop/image-map-canada.png";
-import UnitedKingdomImg from "@/public/locations/desktop/image-map-united-kingdom.png";
+import DesktopAustraliaImg from "@/public/locations/desktop/image-map-australia.png";
+import TabletAustraliaImg from "@/public/locations/tablet/image-map-australia.png";
+import DesktopCanadaImg from "@/public/locations/desktop/image-map-canada.png";
+import TabletCanadaImg from "@/public/locations/tablet/image-map-canada.png";
+import DesktopUnitedKingdomImg from "@/public/locations/desktop/image-map-united-kingdom.png";
+import TabletUnitedKingdomImg from "@/public/locations/tablet/image-map-uk.png";
 
 export const locations = [
   {
@@ -12,7 +15,8 @@ export const locations = [
     address3: "Toronto, Ontario M9C 3J5",
     tel: "+1 253-863-8967",
     mail: "contact@designo.co",
-    img: CanadaImg,
+    DesktopImg: DesktopCanadaImg,
+    TabletImg: TabletCanadaImg,
   },
   {
     country: "Australia",
@@ -21,7 +25,8 @@ export const locations = [
     address3: "New South Wales 2443",
     tel: "(02) 6720 9092",
     mail: "contact@designo.au",
-    img: AustraliaImg,
+    DesktopImg: DesktopAustraliaImg,
+    TabletImg: TabletAustraliaImg,
   },
   {
     country: "United Kingdom",
@@ -30,7 +35,8 @@ export const locations = [
     address3: "Rhyd-y-fro SA8 9GA",
     tel: "078 3115 1400",
     mail: "contact@designo.uk",
-    img: UnitedKingdomImg,
+    DesktopImg: DesktopUnitedKingdomImg,
+    TabletImg: TabletUnitedKingdomImg,
   },
 ];
 
@@ -46,7 +52,8 @@ function CountryLocations() {
           address3={location.address3}
           tel={location.tel}
           mail={location.mail}
-          img={location.img}
+          DesktopImg={location.DesktopImg}
+          TabletImg={location.TabletImg}
         />
       ))}
     </section>

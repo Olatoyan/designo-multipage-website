@@ -1,6 +1,8 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import patternImg from "@/public/shared/desktop/bg-pattern-three-circles.svg";
+import useMediaQuery from "../_hooks/useMediaQuery";
 
 function CountryLocationsCard({
   country,
@@ -9,7 +11,8 @@ function CountryLocationsCard({
   address3,
   tel,
   mail,
-  img,
+  DesktopImg,
+  TabletImg,
 }: {
   country: string;
   address1: string;
@@ -17,12 +20,15 @@ function CountryLocationsCard({
   address3: string;
   tel: string;
   mail: string;
-  img: StaticImageData;
+  DesktopImg: StaticImageData;
+  TabletImg: StaticImageData;
 }) {
+  const isDesktop = useMediaQuery("(min-width: 1025px)");
+
   return (
-    <div className="flex gap-12">
-      <div className="relative grid flex-1 grid-cols-2 gap-12 overflow-hidden rounded-[1.5rem] bg-[#fdf3f0] px-[9.5rem] py-[8.8rem]">
-        <h2 className="col-start-1 col-end-3 text-[4rem] font-medium leading-[4.8rem] text-[#e7816b]">
+    <div className="flex gap-12 laptop:flex-col tablet:gap-0">
+      <div className="relative grid flex-1 grid-cols-2 gap-12 overflow-hidden rounded-[1.5rem] bg-[#fdf3f0] px-[9.5rem] py-[8.8rem] tablet:grid-cols-1 tablet:justify-items-center tablet:gap-[2.4rem] tablet:text-center">
+        <h2 className="col-start-1 col-end-3 text-[4rem] font-medium leading-[4.8rem] text-[#e7816b] tablet:col-end-2 tablet:text-[3.2rem] tablet:leading-[3.6rem]">
           {country}
         </h2>
         <address className="max-w-[25.5rem] text-[1.6rem] not-italic leading-[2.6rem] text-[#333136]">
@@ -48,10 +54,13 @@ function CountryLocationsCard({
         />
       </div>
 
-      <picture className={` ${country === "Australia" && "order-first"}`}>
+      <picture
+        className={` ${country === "Australia" && "order-first"} h-full basis-[37.5rem] laptop:order-first tablet:basis-0`}
+      >
         <Image
-          className="rounded-[1.5rem]"
-          src={img}
+          className="rounded-[1.5rem] laptop:w-full tablet:rounded-none"
+          src={isDesktop ? DesktopImg : TabletImg}
+          placeholder="blur"
           alt={`Map of ${country} location`}
         />
       </picture>
