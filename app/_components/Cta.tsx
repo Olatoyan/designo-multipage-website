@@ -3,9 +3,9 @@ import Image from "next/image";
 
 function Cta() {
   return (
-    <section className="tablet:mx-10 tablet:mb-[-18rem] relative -mb-32 flex items-center justify-between rounded-[1.5rem] bg-[#e7816b] px-[9.5rem] py-24 desktop:px-16 laptop:flex-col laptop:gap-16 laptop:text-center">
+    <section className="relative -mb-32 flex items-center justify-between rounded-[1.5rem] bg-[#e7816b] px-[9.5rem] py-24 desktop:px-16 laptop:flex-col laptop:gap-16 laptop:text-center tablet:mx-10 tablet:mb-[-18rem] tablet:px-8">
       <div className="laptop:flex laptop:flex-col laptop:items-center laptop:gap-8">
-        <h2 className="tablet:text-[3.2rem] tablet:leading-[3.6rem] max-w-[26.8rem] pb-2 text-[4rem] font-medium leading-[100%] text-white">
+        <h2 className="max-w-[26.8rem] pb-2 text-[4rem] font-medium leading-[100%] text-white tablet:text-[3.2rem] tablet:leading-[3.6rem]">
           Let’s talk about your project
         </h2>
         <p className="max-w-[46rem] text-[1.6rem] leading-[2.6rem] text-white">

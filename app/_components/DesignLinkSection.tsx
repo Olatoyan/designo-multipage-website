@@ -1,22 +1,36 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import WebDesign from "@/public/home/desktop/image-web-design-small.jpg";
-import AppDesign from "@/public/home/desktop/image-app-design.jpg";
-import GraphicDesign from "@/public/home/desktop/image-graphic-design.jpg";
+import DesktopWebDesign from "@/public/home/desktop/image-web-design-small.jpg";
+import DesktopAppDesign from "@/public/home/desktop/image-app-design.jpg";
+import DesktopGraphicDesign from "@/public/home/desktop/image-graphic-design.jpg";
+import TabletWebDesign from "@/public/home/tablet/image-web-design.jpg";
+import TabletAppDesign from "@/public/home/tablet/image-app-design.jpg";
+import TabletGraphicDesign from "@/public/home/tablet/image-graphic-design.jpg";
+import MobileWebDesign from "@/public/home/mobile/image-web-design.jpg";
+import MobileAppDesign from "@/public/home/mobile/image-app-design.jpg";
+import MobileGraphicDesign from "@/public/home/mobile/image-graphic-design.jpg";
+import useMediaQuery from "../_hooks/useMediaQuery";
 
 function DesignLinkSection({ exclude }: { exclude: string }) {
+  const isTablet = useMediaQuery("(min-width: 701px) and (max-width: 1024px)");
+
+  const isDesktop = useMediaQuery("(min-width: 1025px)");
+
   return (
-    <section className="my-[16rem] grid h-[30rem] grid-cols-2 gap-x-12 gap-y-[2.4rem] px-[14rem]">
+    <section className="my-[16rem] grid h-[30rem] grid-cols-2 gap-x-12 gap-y-[2.4rem] px-[14rem] miniDesktop:px-20 laptop:h-[45rem] laptop:grid-cols-1 tablet:my-[9.6rem] tablet:h-[55rem] tablet:px-10">
       {exclude === "web-design" ? null : (
         <Link
           href="/web-design"
-          className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[1rem]"
+          className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[1rem] laptop:py-[8.3rem]"
         >
-          <h2 className="z-[2] pb-[2.4rem] text-[4rem] font-medium uppercase leading-[120%] tracking-[0.2rem] text-white">
+          <h2 className="z-[2] pb-[2.4rem] text-[4rem] font-medium uppercase leading-[120%] tracking-[0.2rem] text-white tablet:text-[2.8rem] tablet:leading-[3.6rem] tablet:tracking-[0.14rem]">
             Web Design
           </h2>
-          <p className="z-[2] flex items-center gap-8 text-[1.5rem] font-medium uppercase tracking-[0.5rem] text-white">
+          <p className="z-[2] flex items-center gap-8 text-[1.5rem] font-medium uppercase tracking-[0.5rem] text-white tablet:gap-4">
             <span>View projects</span>
+
             <Image
               src="/shared/desktop/icon-right-arrow.svg"
               alt="View projects"
@@ -25,7 +39,13 @@ function DesignLinkSection({ exclude }: { exclude: string }) {
             />
           </p>
           <Image
-            src={WebDesign}
+            src={
+              isDesktop
+                ? DesktopWebDesign
+                : isTablet
+                  ? TabletWebDesign
+                  : MobileWebDesign
+            }
             alt="Web Design"
             quality={100}
             fill
@@ -38,12 +58,12 @@ function DesignLinkSection({ exclude }: { exclude: string }) {
       {exclude === "app-design" ? null : (
         <Link
           href="/app-design"
-          className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[1rem]"
+          className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[1rem] laptop:py-[8.3rem]"
         >
-          <h2 className="z-[2] pb-[2.4rem] text-[4rem] font-medium uppercase leading-[120%] tracking-[0.2rem] text-white">
+          <h2 className="z-[2] pb-[2.4rem] text-[4rem] font-medium uppercase leading-[120%] tracking-[0.2rem] text-white tablet:text-[2.8rem] tablet:leading-[3.6rem] tablet:tracking-[0.14rem]">
             App Design
           </h2>
-          <p className="z-[2] flex items-center gap-8 text-[1.5rem] font-medium uppercase tracking-[0.5rem] text-white">
+          <p className="z-[2] flex items-center gap-8 text-[1.5rem] font-medium uppercase tracking-[0.5rem] text-white tablet:gap-4">
             <span>View projects</span>
             <Image
               src="/shared/desktop/icon-right-arrow.svg"
@@ -53,7 +73,13 @@ function DesignLinkSection({ exclude }: { exclude: string }) {
             />
           </p>
           <Image
-            src={AppDesign}
+            src={
+              isDesktop
+                ? DesktopAppDesign
+                : isTablet
+                  ? TabletAppDesign
+                  : MobileAppDesign
+            }
             alt="Web Design"
             quality={100}
             fill
@@ -66,12 +92,12 @@ function DesignLinkSection({ exclude }: { exclude: string }) {
       {exclude === "graphic-design" ? null : (
         <Link
           href="/graphic-design"
-          className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[1rem]"
+          className="group relative flex flex-col items-center justify-center overflow-hidden rounded-[1rem] laptop:py-[8.3rem]"
         >
-          <h2 className="z-[2] pb-[2.4rem] text-[4rem] font-medium uppercase leading-[120%] tracking-[0.2rem] text-white">
+          <h2 className="z-[2] pb-[2.4rem] text-[4rem] font-medium uppercase leading-[120%] tracking-[0.2rem] text-white tablet:text-[2.8rem] tablet:leading-[3.6rem] tablet:tracking-[0.14rem]">
             Graphic Design
           </h2>
-          <p className="z-[2] flex items-center gap-8 text-[1.5rem] font-medium uppercase tracking-[0.5rem] text-white">
+          <p className="z-[2] flex items-center gap-8 text-[1.5rem] font-medium uppercase tracking-[0.5rem] text-white tablet:gap-4">
             <span>View projects</span>
             <Image
               src="/shared/desktop/icon-right-arrow.svg"
@@ -81,7 +107,13 @@ function DesignLinkSection({ exclude }: { exclude: string }) {
             />
           </p>
           <Image
-            src={GraphicDesign}
+            src={
+              isDesktop
+                ? DesktopGraphicDesign
+                : isTablet
+                  ? TabletGraphicDesign
+                  : MobileGraphicDesign
+            }
             alt="Web Design"
             quality={100}
             fill
