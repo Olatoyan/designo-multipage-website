@@ -1,15 +1,24 @@
+"use client";
+
 import Image from "next/image";
-import AboutImg from "@/public/about/desktop/image-about-hero.jpg";
+import DesktopAboutImg from "@/public/about/desktop/image-about-hero.jpg";
+import TabletAboutImg from "@/public/about/tablet/image-about-hero.jpg";
+import MobileAboutImg from "@/public/about/mobile/image-about-hero.jpg";
 import ImgPattern from "@/public/about/desktop/bg-pattern-hero-about-desktop.svg";
+import useMediaQuery from "../_hooks/useMediaQuery";
 
 function AboutHeroSection() {
+  const isDesktop = useMediaQuery("(min-width: 1025px)");
+
+  const isTablet = useMediaQuery("(min-width: 701px) and (max-width: 1024px)");
+
   return (
-    <section className="relative mb-[16rem] flex items-center overflow-hidden rounded-[1.5rem] bg-[#e7816b] pl-36">
-      <div className="z-[3]">
-        <h1 className="pb-[3.2rem] text-[4.8rem] font-medium leading-[100%] text-white">
+    <section className="relative mb-[16rem] flex items-center gap-10 overflow-hidden rounded-[1.5rem] bg-[#e7816b] pl-36 laptop:flex-col laptop:gap-0 laptop:pl-0 tablet:mb-0 tablet:rounded-none">
+      <div className="z-[3] laptop:py-[6.4rem] laptop:text-center">
+        <h1 className="pb-[3.2rem] text-[4.8rem] font-medium leading-[100%] text-white tablet:pb-[2.4rem] tablet:text-[3.2rem] tablet:leading-[3.6rem]">
           About Us
         </h1>
-        <p className="max-w-[45.8rem] text-[1.6rem] leading-[2.6rem] text-white">
+        <p className="max-w-[45.8rem] text-[1.6rem] leading-[2.6rem] text-white laptop:max-w-[57.3rem] tablet:px-6 tablet:text-[1.5rem] tablet:leading-[2.5rem]">
           Founded in 2010, we are a creative agency that produces lasting
           results for our clients. We’ve partnered with many startups,
           corporations, and nonprofits alike to craft designs that make real
@@ -17,12 +26,20 @@ function AboutHeroSection() {
           digital experiences that connect with our clients’ audiences.
         </p>
       </div>
-      <picture className="ml-auto">
+      <picture className="ml-auto laptop:order-first laptop:ml-0 laptop:h-[40rem] laptop:w-full tablet:h-[32rem]">
         <Image
-          src={AboutImg}
+          // src={DesktopAboutImg}
+          src={
+            isDesktop
+              ? DesktopAboutImg
+              : isTablet
+                ? TabletAboutImg
+                : MobileAboutImg
+          }
           alt="About Hero Image"
           quality={100}
           placeholder="blur"
+          className="h-full w-full"
         />
       </picture>
       <Image

@@ -6,7 +6,7 @@ import UKImg from "@/public/shared/desktop/illustration-united-kingdom.svg";
 
 function AboutLocationsBox() {
   return (
-    <section className="mb-[16rem] grid grid-cols-3 gap-8">
+    <section className="mb-[16rem] grid grid-cols-3 gap-8 laptop:grid-cols-1 laptop:gap-24 tablet:mb-[9rem]">
       <AboutLocationCard image={CanadaImg} country="Canada" />
       <AboutLocationCard image={AustraliaImg} country="australia" />
       <AboutLocationCard image={UKImg} country="United kingdom" />
