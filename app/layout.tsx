@@ -4,6 +4,7 @@ import "@/app/_styles/globals.css";
 import Navigation from "@/app/_components/Navigation";
 import Footer from "@/app/_components/Footer";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 
 const jost = Jost({ subsets: ["latin"], display: "swap" });
 
@@ -37,6 +38,8 @@ export default function RootLayout({
             style: { fontSize: "1.6rem", padding: "1.4rem 2.4rem" },
           }}
         />
+
+        <Analytics />
       </body>
     </html>
   );
