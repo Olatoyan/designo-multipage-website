@@ -6,8 +6,22 @@ import DesktopCanadaImg from "@/public/locations/desktop/image-map-canada.png";
 import TabletCanadaImg from "@/public/locations/tablet/image-map-canada.png";
 import DesktopUnitedKingdomImg from "@/public/locations/desktop/image-map-united-kingdom.png";
 import TabletUnitedKingdomImg from "@/public/locations/tablet/image-map-uk.png";
+import { StaticImageData } from "next/image";
 
-export const locations = [
+type CountryName = "Canada" | "Australia" | "United Kingdom";
+
+interface Location {
+  country: CountryName;
+  address1: string;
+  address2: string;
+  address3: string;
+  tel: string;
+  mail: string;
+  DesktopImg: StaticImageData;
+  TabletImg: StaticImageData;
+}
+
+export const locations: Location[] = [
   {
     country: "Canada",
     address1: "Designo Central Office",
