@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import ErrorImg from "@/public/contact/desktop/icon-error.svg";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 type FormDataProps = {
   name: string;
@@ -13,6 +15,11 @@ type FormDataProps = {
 };
 
 function ContactForm() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   const {
     formState: { errors },
     handleSubmit,
@@ -25,12 +32,20 @@ function ContactForm() {
     reset();
   }
 
+  const inputVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } },
+  };
+
   return (
-    <form
+    <motion.form
+      ref={ref}
       onSubmit={handleSubmit(onSubmit)}
       className="z-[3] flex flex-1 flex-col gap-[2.5rem] py-[5.4rem] laptop:w-full"
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
     >
-      <div className="relative flex">
+      <motion.div className="relative flex" variants={inputVariants}>
         <input
           placeholder="Name"
           type="text"
@@ -67,8 +82,8 @@ function ContactForm() {
             />
           </span>
         )}
-      </div>
-      <div className="relative flex">
+      </motion.div>
+      <motion.div className="relative flex" variants={inputVariants}>
         <input
           placeholder="Email Address"
           type="text"
@@ -93,8 +108,8 @@ function ContactForm() {
             />
           </span>
         )}
-      </div>
-      <div className="relative flex">
+      </motion.div>
+      <motion.div className="relative flex" variants={inputVariants}>
         <input
           placeholder="Phone"
           type="text"
@@ -119,8 +134,8 @@ function ContactForm() {
             />
           </span>
         )}
-      </div>
-      <div className="relative flex">
+      </motion.div>
+      <motion.div className="relative flex" variants={inputVariants}>
         <textarea
           placeholder="Your Message"
           rows={3}
@@ -155,12 +170,12 @@ function ContactForm() {
               />
             </span>
           )}
-      </div>
+      </motion.div>
 
       <button className="self-end rounded-[0.8rem] bg-white px-[4.8rem] py-[1.7rem] text-[1.5rem] font-medium uppercase tracking-[0.1rem] text-[#333136] transition-all duration-300 hover:bg-[#ffad9b] hover:text-white">
         Submit
       </button>
-    </form>
+    </motion.form>
   );
 }
 
