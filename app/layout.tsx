@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${jost.className}`}>
         <Navigation />
 
-        <main className="tablet:px-0 px-[14rem] desktop:px-24">{children}</main>
+        <main className="px-[14rem] desktop:px-24 tablet:px-0">{children}</main>
 
         <Footer />
 
