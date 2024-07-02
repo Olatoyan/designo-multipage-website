@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: "Designo",
   },
   description:
-    "This is a landing page for a fictional company called Designo. It is built with Next.js and TypeScript. And the author is Olatoyan George.",
+    "This is a landing page for a fictional company called Designo. It is built with Next.js and TypeScript.",
 };
 
 export default function RootLayout({
